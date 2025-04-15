@@ -1,0 +1,288 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s, color 0.3s;
+    overflow-x: hidden;
+}
+
+/* Light Theme */
+body.light-theme {
+    background: #ccc;
+    color: #333;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background: #121212;
+    color: #ffffffd7;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+    opacity: 0;
+    animation: slideIn 0.8s ease-in-out forwards;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #2196F3;
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 50px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 32px;
+    width: 32px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  /* Position the text elements */
+  .toggle-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: bold;
+    transition: opacity 0.4s ease;
+  }
+  
+  .toggle-text.off {
+    right: 12px; /* Position the "OFF" text on the right */
+    opacity: 1;
+    color: #333
+  }
+  
+  .toggle-text.on {
+    left: 12px; /* Position the "ON" text on the left */
+    opacity: 0;
+    color: #fff;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(40px);
+  }
+  
+  input:checked + .slider .toggle-text.off {
+    opacity: 0; /* Hide the "OFF" text when in dark mode */
+  }
+  
+  input:checked + .slider .toggle-text.on {
+    opacity: 1; /* Show the "ON" text when in dark mode */
+  }
+  
+/* Section Styling */
+.section {
+    padding: 50px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards 0.5s;
+}
+
+/* Project Cards */
+.projects-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.726);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    color: #333;
+    animation: fadeInUp 1s ease-in-out forwards 0.5s;
+    position: relative;
+    overflow: hidden;
+}
+
+body.dark-theme .project-card {
+    background-color: #1e1e1e; /* Darker background in dark mode */
+    color: #ffffff;
+    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
+  }
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+
+.project-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Floating Animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards 0.8s;
+}
+
+input {
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: box-shadow 0.3s;
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0px 0px 10px #2196F3;
+    outline: none;
+}
+
+textarea {
+    padding: 10px;
+    width: 100%;
+    height: 300px;
+    max-width: 600px;
+    max-height: 600px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: box-shadow 0.3s;
+    resize: none;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #2196F3;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0b7dda;
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+    animation: fadeIn 1s ease-in-out forwards 1s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
